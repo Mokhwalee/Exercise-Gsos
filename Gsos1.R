@@ -10,6 +10,3 @@ P <- GenCube(3,'H')
 print(volume(P))
 help("volume")
 help("sample_points")
-
-library(ggplot2)
-library(volesti)
