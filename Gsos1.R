@@ -28,12 +28,28 @@ for (step in c(1,20,100,150)){
 factor(rep(letters[1:3],each=10))
 help(factor)
 
-# volume estimation
+# volume estimation / The volume of the 3-dimensional cube
+library(geometry)
+PV<-GenCube(3,'V')
+str(PV)
+help(str)
+geom_values <- convhulln(PV$V, options = 'FA')
+vol_approx <- volume(PV)
+cat(sprintf("exact vol = %f\napprx vol = %f\nrelative error = %f\n",
+            geom_values$vol, vol_approx, abs(geom_values$vol-vol_approx)/geom_values$vol))
 
-
-
-
-
-
+# higher dimensional example/ error parameter --> approximation of the algorithm.
+PH = GenCube(10,'H')
+volumes <- list()
+for (i in 1:10) {
+  volumes[[i]] <- volume(PH, error=1) # default parameters
+}
+options(digits=10)
+summary(as.numeric(volumes))
+volumes <- list()
+for (i in 1:10) {
+  volumes[[i]] <- volume(PH, error=0.5)
+}
+summary(as.numeric(volumes))
 
 
