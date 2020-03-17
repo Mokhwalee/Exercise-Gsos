@@ -32,5 +32,7 @@ points1 = sample_points(P, WalkType = "RDHR", N=1000)
 ggplot(data.frame(x = c(points1[1,]), y = c(points1[2,])), aes(x=x, y=y)) 
 + geom_point() +labs(x =" ", y = " ")+coord_fixed()
 
+help(ggplot)
 
-
+A = c(points1[1,])
+A[3]
