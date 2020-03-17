@@ -25,9 +25,6 @@ for (step in c(1,20,100,150)){
   }
 }
 
-factor(rep(letters[1:3],each=10))
-help(factor)
-
 # volume estimation / The volume of the 3-dimensional cube
 library(geometry)
 PV<-GenCube(3,'V')
