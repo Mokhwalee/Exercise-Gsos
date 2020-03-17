@@ -22,6 +22,14 @@ for (i in 1:length(a))
 
 # 20 times each with both uniform and Gaussian sampling and take the average
 
+points1 = sample_points(P = NULL, N = NULL, distribution = uniform,
+              WalkType = NULL, walk_step = NULL, exact = NULL, body = NULL,
+              Parameters = NULL, InnerPoint = NULL)
+
+points2 = sample_points(P = NULL, N = NULL, distribution = gaussian,
+              WalkType = NULL, walk_step = NULL, exact = NULL, body = NULL,
+              Parameters = NULL, InnerPoint = NULL)
+
 
 # standard deviation
 
