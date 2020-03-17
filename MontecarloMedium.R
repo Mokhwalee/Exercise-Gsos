@@ -16,7 +16,9 @@ f = function(x){exp(-a*abs(x)^2)}
 
 for (i in 1:10){
 cat("a = ", a[i], "n = ", n[i], "\n")
-print(cubintegrate(f, lower = (-1)^n[i], upper = 1))
+cat("** Hcubature **\n")
+print(hcubature(f, lower = (-1)^n[i], upper = 1))
+cat("** Pcubature **\n")
+print(pcubature(f, lower = (-1)^n[i], upper = 1))
 cat("------------------------\n")
 }
-
