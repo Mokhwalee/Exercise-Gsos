@@ -49,6 +49,7 @@ for (i in 1:length(a))
 }
 
 # Comments
-# For the bigger number a, f(x) has the bigger constant a in the exponential function and so it could be less accurate.
-# For the bigger number n, error increases because the integration is conducted in higher dimension.
-# Moreover, the running time is more with bigger a and n.
+# With the bigger number a, f(x) has the bigger constant a in the exponential function and so integral could be less accurate.
+# With the bigger number n, error increases because the integration is conducted in higher dimension.
+# Moreover, the running time takes more with bigger a and n.
+
