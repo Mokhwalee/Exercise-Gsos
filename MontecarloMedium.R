@@ -17,7 +17,7 @@ a
 n
 
 # number of component is one, which is x
-fun = function(x){exp(-a*abs(x)^2)}
+fun = function(x){exp(-a*sum(x)^2)}
 
 for (i in 1:length(a))
 {
