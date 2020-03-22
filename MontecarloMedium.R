@@ -34,7 +34,7 @@ for (i in 1:length(a))
   
   end.time <- Sys.time()
   time.taken <- end.time - start.time
-  cat("time taken = ", time.taken)
+  cat("time taken = ", time.taken, "sec")
   
   if (time.taken > 60)
   {
