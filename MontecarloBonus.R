@@ -34,9 +34,9 @@ for (j in 1:length(a1))
   
   cat("Case",j,")","constant a = ",a,"\n") 
   
-  sum1<-0
+  sum1<-0 #initialize
   sum2<-0
-  uniformintegral = rep(0,20)
+  uniformintegral = rep(0,20) #initialize
   gaussianintegral = rep(0,20)
   
   # 20 times each with both uniform and Gaussian sampling and take the average. 
