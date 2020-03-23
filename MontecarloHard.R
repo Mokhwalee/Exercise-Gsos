@@ -81,6 +81,8 @@ for (i in 1:length(a1))
 
 ## Comment on accuracy and run-time ##
 # Overall results say that uniformly chosen sample_points approximates integral well(pretty accurate) than Gaussian/cubature method
+# cubature package is preferable with lower dimension, however,
+#     for larger dimension integration problem, Volesti package is preferable since it is faster
 # Using Cubature package(hcubature) takes more time than using Volesti Package
 # Volesti Package with sample_point function is preferable for computation time
 # With the randomly generated n-dim cube, I detect that integral with cubature package and uniform sample point in Volesti
