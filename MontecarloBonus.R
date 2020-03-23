@@ -7,11 +7,13 @@ library(Rcpp)
 library(cubature)
 library(volesti)
 
-ff <- readline(prompt = "Enter the number of the facets: \n")
-ffacet <- as.integer(ff)
+#ff <- readline(prompt = "Enter the number of the facets: \n")
+ff = 1500
+#ffacet <- as.integer(ff)
 
 # generate a 100-dim random H-polytope
-P = GenRandHpoly(100,ffacet)
+P = GenRandHpoly(100,ff)
+V <- volume(P)
 
 # compute the largest inscribed ball (Chebychev ball)
 Inner = InnerBall(P)
@@ -19,8 +21,8 @@ x0 = Inner[1:length(Inner)-1]
 radius = Inner[length(Inner)]
 
 # Compute the Integral over the above polytope with various a
-a1 <- runif(10, -5, 20)
-num_of_points <- 1000
+a1 <- runif(10, 0, 2)
+num_of_points <- 10000
 
 # Integrate over the polytope with various a
 int1<-0
@@ -29,16 +31,17 @@ for (j in 1:length(a1))
 {
   a = a1[j]
   f = function(x){exp(-a*sum((x-x0)^2))}
-  V <- volume(P)
   
   cat("Case",j,")","constant a = ",a,"\n") 
   
   sum1<-0
   sum2<-0
+  uniformintegral = rep(0,20)
+  gaussianintegral = rep(0,20)
   
   # 20 times each with both uniform and Gaussian sampling and take the average. 
   # Report the standard deviation for each experiment.
-  for (k in 1:20) 
+  for (k in 1:20)
   {
     # Uniform Sampling
     points1 = sample_points(P = P, N=num_of_points, distribution = "uniform",
@@ -85,8 +88,8 @@ for (j in 1:length(a1))
   
 }
 
-
 ## Comments ##
-
+#
 
 ## RESULT ##
+# While calculating Volume(P), computer is out of running time
