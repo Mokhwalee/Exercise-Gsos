@@ -8,7 +8,7 @@ library(cubature)
 library(volesti)
 
 #ff <- readline(prompt = "Enter the number of the facets: \n")
-ff = 1500
+ff = 500
 #ffacet <- as.integer(ff)
 
 # generate a 100-dim random H-polytope
@@ -34,8 +34,6 @@ for (j in 1:length(a1))
   
   cat("Case",j,")","constant a = ",a,"\n") 
   
-  sum1<-0 #initialize
-  sum2<-0
   uniformintegral = rep(0,20) #initialize
   gaussianintegral = rep(0,20)
   
@@ -58,29 +56,19 @@ for (j in 1:length(a1))
     }
     
     uniformintegral[k] = int1*V/num_of_points
-    cat("Uniform sampling = ", Uniformintegral,"\n")
+    cat("Uniform sampling = ", uniformintegral[k],"\n")
     
     gaussianintegral[k] = int2*V/num_of_points
-    cat("Gaussian sampling", Gaussianintegral, "\n")
-    
-    sum1 <- sum1 + uniformintegral[k]
-    sum2 <- sum2 + gaussianintegral[k]
+    cat("Gaussian sampling = ", gaussianintegral[k], "\n")
     
   }
-  sum1 <- sum1/20 # average for uniform dist
-  sum2 <- sum2/20 # average for gaussian dist
-  cat("Average(uniform) = ",sum1,"\n","Average(gaussian) = ",sum2,"\n")
+  average1 <- mean(uniformintegral) # average for uniform dist
+  average2 <- mean(gaussianintegral) # average for gaussian dist
+  cat("Average(uniform) = ",average1,"\n","Average(gaussian) = ",average2,"\n")
   
   
-  sd1<-0 
-  sd2<-0
-  for (k in 1:20)
-  {
-    sd1<-sd1+(uniformintegral[k]-sum1)^2
-    sd2<-sd2+(gaussianintegral[k]-sum2)^2
-  }
-  sd1<-sqrt(sd1/20)
-  sd2<-sqrt(sd2/20)
+  sd1 <- sd(uniformintegral)
+  sd2 <- sd(gaussianintegral)
   cat("Standard Deviation(uniform) = ",sd1,"\n",
       "Standard Deviation(gaussian) = ",sd2,"\n")
   
