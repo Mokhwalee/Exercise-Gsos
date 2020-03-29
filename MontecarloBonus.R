@@ -77,7 +77,11 @@ for (j in 1:length(a1))
 }
 
 ## Comments ##
-#
+# The package needs to be improved to deal with high dimensional polytope to get integral
 
 ## RESULT ##
 # While calculating Volume(P), computer is out of running time
+# In fourth and fifth line, I made 100-dimensional random H-polytope 
+#and tried to calculate the volume V with around 500-600 facets, 
+#but because of the high-dimensional property, 
+#the computer is out of running time calculating it
